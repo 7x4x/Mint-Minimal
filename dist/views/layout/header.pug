@@ -1,0 +1,8 @@
+header
+  .container
+    .logo
+      a(href="#"): img(src="/assets/images/logo.png")
+    nav
+      ul
+        each link in content.navLinks
+          li: a(href="#" + link) #{link}

@@ -1,0 +1,36 @@
+@mixin media($size, $type: min)
+  @if $size == sm
+    @media (#{$type}-width: 768px)
+      @content
+  @else if $size == md
+    @media (#{$type}-width: 992px)
+      @content
+  @else if $size == lg
+    @media (#{$type}-width: 1200px)
+      @content
+  @else if $size == xl
+    @media (#{$type}-width: 1280px)
+      @content
+  @else if $size == 2xl
+    @media (#{$type}-width: 1536px)
+      @content
+  @else 
+    @media (#{$type}-width: $size)
+      @content
+
+@mixin fill-effect($background-color, $size, $spread-size)
+  position: relative
+  overflow: hidden
+  &::before
+    content: ''
+    position: absolute
+    bottom: -$size
+    left: calc(50% - ($size / 2))
+    transition: bottom 0.3s linear,box-shadow .35s ease .35s
+    width: $size
+    height: $size
+    background-color: $background-color
+    border-radius: 50%
+  &:hover::before
+    box-shadow: 0 0 0 $spread-size $background-color
+    bottom: calc(50% - ($size / 2))

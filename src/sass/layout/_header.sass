@@ -1,0 +1,55 @@
+header
+  padding: 10px 0
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+    .logo
+      @include media(sm, max)
+        width: 50%
+        margin: auto
+        transform: translateX(15%)
+      width: 25%
+      img
+        max-width: 100%
+    nav
+      @include media(sm, max)
+        margin-top: 10px
+        width: 100%
+      ul
+        @include media(400px, max)
+          gap: 15px
+        @include media(250px, max)
+          gap: 10px
+        display: flex
+        justify-content: center
+        gap: 20px
+        li
+          a
+            @include media(400px, max)
+              font-size: 1rem
+            @include media(350px, max)
+              font-size: 14px
+            @include media(250px, max)
+              font-size: 12px
+            text-transform: uppercase
+            color: $main-color
+            position: relative
+            font-weight: 600
+            font-size: 1.2rem
+            transition: $main-transition
+            &::before
+              content: ''
+              position: absolute
+              width: 0
+              height: 3px
+              background-color: $text-hover
+              bottom: -7px
+              left: 50%
+              transform: translateX(-50%)
+              transition: $main-transition
+            &:hover
+              color: $text-hover
+            &:hover::before
+              width: 100%

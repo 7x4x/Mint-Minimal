@@ -1,0 +1,105 @@
+doctype html
+html(lang="en" dir=content.dir)
+  head
+    include includes/head
+    title #{content.title}
+    link(rel="stylesheet" href="/assets/css/main.min.css")
+  body
+    include layout/header
+    //- Start Landing
+    section.landing
+      .container
+        .text.sm-full-width.sm-center
+          h1.sm-full-width !{content.landingH1}
+          p #{content.landingP}
+          a.main-button(href="#00") #{content.landingBtn}
+        .colored-image.flex-center.sm-full-width #{content.imgText}
+    //- End Landing
+
+    //- Start Works
+    section.works#work
+      .container.sm-center
+        h1.main-heading #{content.headings[0]}
+        .filter
+          ul
+            each category in content.categories
+              - if (category == content.categories[0])
+                li.active #{category}
+              - else
+                li #{category}
+          .sort.sm-none #{content.sort} #[i.fa-solid.fa-angle-down]
+        .images
+          - let colors = [["#fbe730", "#222"], ["#f6f7f9", "#111"], ["#e3efef", "#111"], ["#f3f4f6", "#111"], ["#e5e5e7", "#111"], ["#f6f7f9", "#111"]]
+          - let style;
+          - for (let i = 1; i < 7; i++)
+            - style = 'color:' + colors[i - 1][1] + '; background-color:' + colors[i - 1][0];
+            .colored-image(style=style).flex-center #{content.imgText + " " + i}  
+        a.main-button(href="#00") #{content.worksBtn}
+    //- End Works
+
+    //- Start Logos
+    section.logos
+      .container
+        - for (let i = 0; i < 6; i++)
+          i.fa-solid.fa-box-open
+    //- End Logos
+    
+    //- Start About
+    section.about#about
+      .container.sm-center
+        h1.main-heading #{content.headings[1]}
+        p.main-p #{content.aboutP}
+        .info.sm-grid
+          .image
+            .text
+              h3 #{content.aboutInfo.name}
+              p #{content.aboutInfo.jp}
+          .image
+            .text
+              h3 #{content.aboutInfo.name}
+              p #{content.aboutInfo.jp}
+          .text
+            .center
+              h3 #{content.aboutH3}
+              p #{content.aboutP}
+              a(href="#00") #{content.aboutbtn}
+
+    //- End About
+
+    //- Start Blog
+    section.blog#blog
+      .container.sm-center
+        h1.main-heading #{content.headings[2]}
+        p.main-p #{content.aboutP}
+        .images.sm-grid
+          - for (let i = 0; i < 3; i++)
+            .box
+              .img
+                a(href="#00") #{content.aboutbtn}
+                img(src="/assets/images/blog.jpg")
+              .text
+                h3 #{content.blog.title}
+                p #{content.aboutP}
+                span #{content.blog.date}
+    //- End Blog
+    
+    //- Start Contact
+    sectoin.contact#contact
+      .container.sm-center
+        h1.main-heading #{content.headings[3]}
+        p.main-p #{content.aboutP}
+        .form.sm-grid
+          form
+            h1 Send Us Message.
+            input.main-input(type="text" placeholder="Name")
+            input.main-input(type="email" placeholder="Email")
+            textarea(placeholder="Message")
+            input.main-button(type="submit" value="Send Message") 
+          .colored-image.flex-center image
+        .icons
+          i.fa-brands.fa-facebook-f
+          i.fa-brands.fa-twitter
+          i.fa-solid.fa-basketball
+    //- End Contact
+    include layout/footer
+  script(src="/assets/js/main.min.js")

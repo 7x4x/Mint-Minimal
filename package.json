@@ -1,0 +1,38 @@
+{
+  "name": "tamplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "build": "touch index.js && npm run dist && npm run src",
+    "dist": "mkdir dist dist/assets dist/assets/css dist/assets/favicon dist/assets/js dist/assets/images dist/assets/languages dist/views dist/views/includes dist/views/layout && touch dist/views/index.pug",
+    "src": "mkdir src src/js src/languages src/sass src/sass/abstracts src/sass/base src/sass/components src/sass/layout src/sass/pages src/sass/themes src/sass/vendors && touch src/sass/main.sass src/sass/base/_normalize.sass src/sass/base/_global.sass src/sass/abstracts/_variables.sass src/sass/abstracts/_helpers.sass src/sass/abstracts/_colors.sass src/sass/abstracts/_mixins.sass src/sass/layout/_header.sass src/sass/layout/_grid.sass src/sass/layout/_footer.sass"
+  },
+  "keywords": [],
+  "author": "Banned",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.52.1"
+  },
+  "engines": {
+    "node": "16.14.0",
+    "npm": "8.11.0"
+  }
+}

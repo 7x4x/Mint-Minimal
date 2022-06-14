@@ -1,0 +1,25 @@
+.main-heading
+  @include media(lg, min)
+    font-size: calc(2.6 * 16px)
+  @include media(2xl, min)
+    font-size: calc(3.2 * 16px)
+  @include media(sm, max)
+    font-size: 2rem
+  @include media(310px, max)
+    font-size: 1.6rem
+  color: $main-color
+  font-size: calc(2.2 * 16px)
+  text-transform: uppercase
+  font-weight: 900
+  margin:
+    top: 100px
+    bottom: 40px
+
+.main-p
+  @include media(sm)
+    width: 70%
+    min-width: 670px
+  font-weight: 600
+  line-height: 1.9
+  color: $main-color
+  margin-bottom: 50px
